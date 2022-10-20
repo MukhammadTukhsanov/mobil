@@ -31,7 +31,9 @@ const CountriesScreen = () => {
                             data={COUNTRIES}
                             renderItem={renderItem}
                         />
-                        <LoginWithBtn disabled text={'Next Page'}/>
+                        <View style={{paddingHorizontal: 20}}>
+                            <LoginWithBtn disabled text={'Next Page'}/>
+                        </View>
                     </SafeAreaView>
                 </View>
     )

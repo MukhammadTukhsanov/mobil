@@ -53,3 +53,31 @@ export const RadioCheckingBox = ({text, textSize}) => {
         }
         />
 }
+export const RadioCheckingBoxWithText = ({text, textSize, btnSize}) => {
+    const [radioChecked, setRadioChecked] = useState(false)    
+    return <CheckBox
+    containerStyle={{margin: 0, padding: 0}}
+    style={{margin: 0, padding: 0, alignSelf: 'center'}}
+    center
+    checked={radioChecked}
+    onPress={() => setRadioChecked(!radioChecked)}
+        checkedIcon={
+            <View style={{width: btnSize, backgroundColor: COLORS.lightSecondary, paddingVertical: 8, alignItems: 'center', borderRadius: 17.5, borderWidth: 1, borderColor: COLORS.black}}>
+                <Text
+                name="radio-button-checked"
+                type="material"
+                style={{fontSize: textSize}}
+                >{text}</Text>
+            </View>
+        }
+        uncheckedIcon={
+            <View style={{ width: btnSize, backgroundColor: COLORS.lightSecondary, paddingVertical: 8, alignItems: 'center', borderRadius: 17.5, borderWidth: 1, borderColor: COLORS.lightSecondary}}>
+                <Text
+                name="radio-button-checked"
+                type="material"
+                style={{fontSize: textSize}}
+                >{text}</Text>
+            </View>
+        }
+        />
+}

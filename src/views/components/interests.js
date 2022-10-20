@@ -1,0 +1,45 @@
+export const INTERESTS = [{
+    name: 'Cars'
+}, {
+    name: 'Fashion'
+}, {
+    name: 'Movies'
+}, {
+    name: 'Covid-19'
+}, {
+    name: 'Nature'
+}, {
+    name: 'Adventure'
+}, {
+    name: 'Fitness'
+}, {
+    name: 'Dancing'
+}, {
+    name: 'Beauty'
+}, {
+    name: 'Handicraft'
+}, {
+    name: 'Astrology'
+}, {
+    name: 'Collecting'
+}, {
+    name: 'Singing'
+}, {
+    name: 'Collecting'
+}, {
+    name: 'Shopping'
+}, {
+    name: 'Technology'
+}, {
+    name: 'Design'
+}, {
+    name: 'Life'
+}, {
+    name: 'casual'
+}, {
+    name: 'Humor'
+}, {
+    name: 'Sciense'
+}, {
+    name: 'Family'
+}]
