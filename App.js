@@ -6,10 +6,11 @@ import RegistrationScreen from './src/views/screens/RegistrationScreen';
 import CountriesScreen from './src/views/screens/CountriesScreen';
 import InterestsScreen from './src/views/screens/InterestsScreen';
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    // <Text>sdfjknsdf sdkfjnkf kjsdfk sdfkjnk </Text>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name='InterestsScreen' component={InterestsScreen} />
