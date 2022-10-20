@@ -13,7 +13,7 @@ const LoginScreen = ({navigation}) => {
         {sotIconName: 'bubbles'}
     ]
     return (
-      <SafeAreaView style={{backgroundColor: COLORS.white, flex: 1}}>
+      <SafeAreaView style={{backgroundColor: COLORS.white}}>
           <ScrollView contentContainerStyle={{
               paddingTop: 50,
               paddingHorizontal: 20,
@@ -22,10 +22,10 @@ const LoginScreen = ({navigation}) => {
           }}>
               <Text style={{
                   fontWeight: '600',
-                  fontSize: '26px',
-                  lineHeight: '24px',
+                  fontSize: 26,
+                  lineHeight: 24,
                   textAlign: 'center',
-                  marginBottom: 72,
+                  marginBottom: 'auto',
                   color: COLORS.black
               }}>
                 Login to Your Account

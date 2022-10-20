@@ -35,7 +35,7 @@ const RegistrationScreen = ({navigation}) => {
         {sotIconName: 'bubbles'}
     ]
     return (
-      <SafeAreaView style={{backgroundColor: COLORS.white, flex: 1}}>
+      <SafeAreaView style={{backgroundColor: COLORS.white}}>
           <ScrollView contentContainerStyle={{
               paddingTop: 50,
               paddingHorizontal: 20,
@@ -44,17 +44,17 @@ const RegistrationScreen = ({navigation}) => {
           }}>
               <Text style={{
                   fontWeight: '600',
-                  fontSize: '26px',
-                  lineHeight: '24px',
+                  fontSize: 26,
+                  lineHeight: 24,
                   textAlign: 'center',
-                  marginBottom: 72,
+                  marginBottom: 'auto',
                   color: COLORS.black
               }}>
                 Create New Account
               </Text>
               <View>
                   {inputs.map(e => (
-                      <Input key={e.iconName} marginBottom={20} placeholder={e.placeholder} iconName={e.iconName} password={e.password}/>
+                      <Input key={e.iconName} marginBottom={10} placeholder={e.placeholder} iconName={e.iconName} password={e.password}/>
                   ))}
                   <AppButton text={'Register'} />
                   <TextwithLine text={'or contine with'}/>

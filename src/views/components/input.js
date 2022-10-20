@@ -11,7 +11,7 @@ const Input = ({label, iconName, error, password, marginBottom, onFocus= () => {
         <View style={{marginBottom: marginBottom}}>
             <Text>{label}</Text>
             <View style={{
-                            height: 55,
+                            height: 45,
                             backgroundColor: COLORS.white,
                             flexDirection: 'row',
                             paddingHorizontal: 15,

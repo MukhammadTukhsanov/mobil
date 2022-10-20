@@ -35,23 +35,24 @@ export const LoginWithBtn = ({text, iconName, ...props}) => (
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingVertical: 12,
+        paddingVertical: 10,
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
         backgroundColor: '#f8f8f8',
         borderRadius: 21,
         /* button shadow */
-        shadowColor: '#000',
-        shadowOffset: 'hex',
-        shadowOpacity: .1,
-        shadowRadius: 3
+        // shadowColor: '#000',
+        // shadowOffset: 'hex',
+        // shadowOpacity: .1,
+        // shadowRadius: 3
         }}
         titleStyle={{
+            fontSize: 16,
             color: COLORS.black
         }}
     >   
-        <Icon name={iconName} style={{fontSize: 20, marginRight: 10 }} />
+        <Icon name={iconName} style={{fontSize: 18, marginRight: 10 }} />
         {text}
     </Button>
 )

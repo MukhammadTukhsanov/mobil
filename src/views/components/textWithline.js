@@ -15,7 +15,7 @@ const TextwithLine = ({text}) => (
 
 const style = StyleSheet.create({
     loginTextWithLine: {
-        marginVertical: 30,
+        marginVertical: 20,
         paddingHorizontal: 16,
         textTransform: 'uppercase',
         backgroundColor: COLORS.white
