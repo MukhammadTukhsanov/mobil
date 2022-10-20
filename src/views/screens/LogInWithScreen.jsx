@@ -76,7 +76,7 @@ const style = StyleSheet.create({
   logInText: {
     fontStyle: "normal",
     fontWeight: "700",
-    fontSize: "52px",
+    // fontSize: "52px",
     textAlign: "center",
     textTransform: "uppercase",
     // letterSpacing: '21px',
