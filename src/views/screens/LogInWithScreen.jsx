@@ -70,6 +70,7 @@ const style = StyleSheet.create({
     alignItems: "center",
     height: "100%",
     padding: 20,
+    paddingTop: 40,
     justifyContent: "flex-end",
     backgroundColor: COLORS.white,
   },

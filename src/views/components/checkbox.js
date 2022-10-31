@@ -1,11 +1,13 @@
 import { CheckBox } from "@rneui/base";
-import { Icon } from "@rneui/themed";
-import React, { useState } from "react";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import React, { useContext, useState } from "react";
 import { View, Text } from "react-native"
 import { COLORS } from "../../colors/colors";
+import { AppContext } from "../../../Global/Context";
 
 export const CheckingBox = ({text, ...props}) => {
-    const [checked, setChecked] = useState(true)    
+
+    const [checked, setChecked] = useState(false)    
     return (
         <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
             <CheckBox 
@@ -20,9 +22,9 @@ export const CheckingBox = ({text, ...props}) => {
     )
 }
 
-export const RadioCheckingBox = ({text, textSize}) => {
-    const [radioChecked, setRadioChecked] = useState(false)    
+export const RadioCheckingBox = ({text, textSize, ...props}) => {
     return <CheckBox
+    {...props}
     center
     title={text}
     textStyle={{
@@ -31,20 +33,22 @@ export const RadioCheckingBox = ({text, textSize}) => {
         lineHeight: 20,
         textTransform: 'capitalize'
     }}
-    checked={radioChecked}
-    onPress={() => setRadioChecked(!radioChecked)}
+    // checked={radioChecked}
+    // onPress={() => setRadioChecked(!radioChecked)}
         checkedIcon={
-            <Icon
-            name="radio-button-checked"
-            type="material"
-            color={COLORS.yellow}
-            size={25}
-            iconStyle={{ marginRight: 10 }}
-            />
+            <View>
+                <Icon
+                name="radiobox-marked"
+                type="material"
+                color={COLORS.yellow}
+                size={25}
+                iconStyle={{ marginRight: 10 }}
+                />
+            </View>
         }
         uncheckedIcon={
             <Icon
-            name="radio-button-unchecked"
+            name="radiobox-blank"
             type="material"
             color={COLORS.secondary}
             size={25}
@@ -77,6 +81,94 @@ export const RadioCheckingBoxWithText = ({text, textSize, btnSize}) => {
                 type="material"
                 style={{fontSize: textSize}}
                 >{text}</Text>
+            </View>
+        }
+        />
+}
+
+export const RadioForSelectIdeal = ({icon, windowWidth, text}) => {
+    const [radioChecked, setRadioChecked] = useState(false)    
+    return <CheckBox
+    containerStyle={{margin: 0, padding: 0}}
+    style={{margin: 0, padding: 0, alignSelf: 'center'}}
+    center
+    checked={radioChecked}
+    onPress={() => setRadioChecked(!radioChecked)}
+        checkedIcon={
+            <View style={{
+                    width: windowWidth, 
+                    height: 207, 
+                    borderWidth: 1, 
+                    borderColor: COLORS.yellow,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 20,
+                    marginBottom: 20
+                    }}>
+                <Icon name={icon} size={36} style={{opacity: .5}} color={COLORS.yellow}/>
+                <Text style={{fontSize: 16, color: COLORS.yellow }}>
+                    {text}
+                </Text>
+            </View>
+        }
+        uncheckedIcon={
+            <View style={{
+                    width: windowWidth, 
+                    height: 207, 
+                    borderWidth: 1, 
+                    borderColor: COLORS.black,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 20,
+                    marginBottom: 20
+                    }}>
+                <Icon name={icon} size={36} style={{opacity: .5}} color={COLORS.black} />
+                <Text style={{fontSize: 16, color: COLORS.black }}>
+                    {text}
+                </Text>
+            </View>
+        }
+        />
+}
+
+export const GenderCheckbox = ({text, width}) => {
+    const [radioChecked, setRadioChecked] = useState(false)    
+    return <CheckBox
+    containerStyle={{margin: 0, padding: 0}}
+    style={{margin: 0, padding: 0, alignSelf: 'center'}}
+    center
+    checked={radioChecked}
+    onPress={() => setRadioChecked(!radioChecked)}
+        checkedIcon={
+            <View style={{
+                    width: width,
+                    height: 28, 
+                    borderWidth: 1, 
+                    borderColor: COLORS.yellow,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 20,
+                    marginBottom: 20
+                }}>
+                <Text style={{fontSize: 16, color: COLORS.yellow }}>
+                    {text}
+                </Text>
+            </View>
+        }
+        uncheckedIcon={
+            <View style={{
+                    width: width,
+                    height: 28, 
+                    borderWidth: 1, 
+                    borderColor: COLORS.black,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 20,
+                    marginBottom: 20
+                    }}>
+                <Text style={{fontSize: 16, color: COLORS.black, marginHorizontal: 'auto'}}>
+                    {text}
+                </Text>
             </View>
         }
         />

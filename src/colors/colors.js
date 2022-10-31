@@ -6,5 +6,6 @@ export const COLORS = {
     lightSecondary: '#eeeeee',
     red: 'red',
     secondary: '#3b3b3b',
-    
+    mute: '#757575',
+    green: '#2AAC7A'
 }

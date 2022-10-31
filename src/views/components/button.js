@@ -3,12 +3,13 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons'
 import React from "react";
 import { COLORS } from "../../colors/colors";
 
-export const AppButton = ({text}) => {
+export const AppButton = ({text, ...props}) => {
     return(
         <Button 
+            {...props}
             color={COLORS.yellow} 
             buttonStyle={{borderRadius: 21, height: 42}} 
-            titleStyle={{color: COLORS.black}} >{text}</Button>
+            titleStyle={{color: COLORS.black}}>{text}</Button>
     )
 }
 
@@ -41,11 +42,6 @@ export const LoginWithBtn = ({text, iconName, ...props}) => (
         elevation: 3,
         backgroundColor: '#f8f8f8',
         borderRadius: 21,
-        /* button shadow */
-        // shadowColor: '#000',
-        // shadowOffset: 'hex',
-        // shadowOpacity: .1,
-        // shadowRadius: 3
         }}
         titleStyle={{
             fontSize: 16,

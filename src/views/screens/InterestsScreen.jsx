@@ -4,10 +4,11 @@ import { Dimensions, FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View 
 import { COLORS } from '../../colors/colors';
 import { RadioCheckingBoxWithText } from '../components/checkbox';
 import { INTERESTS } from '../components/interests';
+import { AppButton } from '../components/button';
 
-const InterestsScreen = () => {
+const InterestsScreen = ({navigation}) => {
     const windowWidth = Dimensions.get('window').width / 2 - 20
-    const windowHeight = Dimensions.get('window').height - 200
+    const windowHeight = Dimensions.get('window').height - 240
     const renderItem = ({item}) => {
         return (
             <View style={{marginVertical: 7}}>
@@ -16,10 +17,7 @@ const InterestsScreen = () => {
         )
     }
     return(
-        <SafeAreaView style={{backgroundColor: COLORS.white}}>
-           <View style={style.header}>
-                <Icon size={22} name='arrow-left' />
-           </View>
+        <SafeAreaView style={{backgroundColor: COLORS.white, height: '100%'}}>
            <View style={{width: '100%', flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: 20}}>
                 <View style={{paddingHorizontal: 15, paddingVertical: 5, backgroundColor: COLORS.secondary, borderRadius: 20}}>
                     <Text style={{color: COLORS.white}}>0  /  30</Text>
@@ -43,13 +41,14 @@ const InterestsScreen = () => {
                     We’ll use them to match with other based on common interests.
                </Text>
            </View>
-           <ScrollView style={{height: windowHeight}}>
-                    <FlatList 
-                        data={INTERESTS}
-                        renderItem={renderItem}
-                        numColumns={2}
-                    />
-           </ScrollView>
+            <FlatList 
+                data={INTERESTS}
+                renderItem={renderItem}
+                numColumns={2}
+            />
+            <View style={{paddingHorizontal: 20, paddingVertical: 10}}>
+                <AppButton onPress={() => navigation.navigate('FillProfileScreen')} text={'next page'}/>
+            </View>
         </SafeAreaView>
     )
 }

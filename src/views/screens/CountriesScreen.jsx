@@ -1,6 +1,9 @@
-import { ListItem } from "@rneui/themed";
-import React from "react";
-import { Dimensions, FlatList, SafeAreaView, ScrollView, View } from "react-native";
+import React, { useEffect } from "react";
+import { useContext } from "react";
+import { FlatList, KeyboardAvoidingView, Platform, SafeAreaView, View } from "react-native";
+import { Divider } from "react-native-elements";
+import { ScrollView } from "react-native-virtualized-view";
+import { AppContext } from "../../../Global/Context";
 import { COLORS } from "../../colors/colors";
 import { LoginWithBtn } from "../components/button";
 import { RadioCheckingBox } from "../components/checkbox";
@@ -8,34 +11,38 @@ import { COUNTRIES } from "../components/countries";
 import Input from "../components/input";
 
 
-const CountriesScreen = () => {
+const CountriesScreen = ({navigation}) => {
+    const {radioChecked, setRadioChecked} = useContext(AppContext)
+    
     const renderItem = ({item}) => {
         return (
-            <View key={item.code} style={{
-                                            borderColor: COLORS.secondary, 
-                                            borderBottomWidth: .1, 
-                                            borderTopWidth: .2,
-                                            width: '100%',
-                                            alignItems: 'left'}}>
-                <RadioCheckingBox text={item.name} textSize={'20'}/>
+            <View key={item.code} style={{borderColor: COLORS.secondary, borderBottomWidth: .1, borderTopWidth: .2, width: '100%',alignItems: 'flex-start'}}>
+                <RadioCheckingBox onPress={() => setRadioChecked(!radioChecked)} checked={radioChecked} text={item.name} textSize={20}/>
             </View>
         )
     }
-    const windovHeight = Dimensions.get('window').height - 200
+
+    // useEffect(() => {
+    //     console.log(
+    //         setRadioChecked
+    //     )
+    // },[setRadioChecked])
+
+    // const windovHeight = Dimensions.get('window').height - 120
     return(
-                <View style={{backgroundColor: COLORS.white}}>
-                    <SafeAreaView>
-                        <Input placeholder={'Search'} iconName={'magnify'}/>
-                        <FlatList 
-                            style={{height: windovHeight}}
-                            data={COUNTRIES}
-                            renderItem={renderItem}
-                        />
-                        <View style={{paddingHorizontal: 20}}>
-                            <LoginWithBtn disabled text={'Next Page'}/>
-                        </View>
-                    </SafeAreaView>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios'? 'padding': 'height' }>
+            <SafeAreaView style={{backgroundColor: COLORS.white, height: '100%'}}>
+                <Input placeholder={'Search'} iconName={'magnify'}/>
+                    <FlatList 
+                        data={COUNTRIES}
+                        renderItem={renderItem}
+                    />
+                <Divider width={1}/>
+                <View style={{paddingHorizontal: 20}}>
+                    <LoginWithBtn onPress={() => navigation.navigate('InterestsScreen')} text={'Next Page'}/>
                 </View>
+            </SafeAreaView>
+        </KeyboardAvoidingView>
     )
 }
 
